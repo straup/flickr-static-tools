@@ -20,15 +20,17 @@
 
 </div>
 {% endfor %}
-</div>
 
 <div id="photos-nav">
 {% if prev or next %}
-<ul class="pagination">
-<li>{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html">previous</a>{% else %}this is the beginning{% endif %}</li>
-<li>{% if next %}<a id="next-page" href="page{{ next | e }}.html">next</a>{% else %}this is the end{% endif %}</li>
-</ul>
+<span class="photos-nav-previous">{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html" title="go to page {{ prev | e }} or {{ pages | e}}">page {{ prev | e }}</a>{% else %}start where you are{% endif %}</span>
+
+<span class="photos-nav-meta">this is page {{ page | e }} of {{ pages | e }}</span>
+
+<span class="photos-nav-next">{% if next %}<a id="next-page" href="page{{ next | e }}.html">page {{ next | e }}</a>{% else %}that is all{% endif %}</span>
 {% endif %}
+</div>
+
 </div>
 
 {% endblock %}

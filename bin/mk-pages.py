@@ -179,7 +179,7 @@ if __name__ == "__main__":
             if page - 1 > 0:
                 prev = page -1
 
-            if page + 1 < len(pages):
+            if page + 1 <= len(pages):
                 next = page + 1
 
             for ph in photos:
@@ -191,7 +191,7 @@ if __name__ == "__main__":
 
                 ph["_prefix"] = dots + ymd
 
-            body = date_template.render(date=d, photos=photos, prev=prev, next=next, dots=dots)
+            body = date_template.render(date=d, photos=photos, page=page, pages=len(pages), prev=prev, next=next, dots=dots)
 
             fname = "page%s.html" % page
 
