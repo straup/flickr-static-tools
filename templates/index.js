@@ -5,7 +5,19 @@ window.addEventListener("load", function load(event){
 
 		document.addEventListener('keydown', function(e){
 
-				console.log("EVENT", e);
+				var loc;
+
+				if ((e.keyCode == 37) && (prev)){
+					loc = prev.getAttribute("href");
+				}
+
+				if ((e.keyCode == 39) && (next)){
+					loc = next.getAttribute("href");
+				}
+				
+				if (loc){
+					location.href = loc;
+				}
 		});
 
 });
