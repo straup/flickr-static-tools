@@ -23,10 +23,12 @@
 </div>
 
 <div id="photos-nav">
+{% if prev or next %}
 <ul class="pagination">
 <li>{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html">previous</a>{% else %}this is the beginning{% endif %}</li>
 <li>{% if next %}<a id="next-page" href="page{{ next | e }}.html">next</a>{% else %}this is the end{% endif %}</li>
 </ul>
+{% endif %}
 </div>
 
 {% endblock %}

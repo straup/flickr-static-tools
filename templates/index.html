@@ -8,12 +8,19 @@
 
 <div id="index-page">
 
+{% for yyyy in years %}
+
+<div id="index-page-photos">
+<h1><a href="{{ yyyy | e }}/">{{ yyyy | e }}</a></h1>
+
 <ul>
-{% for ph in photos %}
-<li><strong>{{ ph.0 | e }}</strong> <a href="#">{% if ph.1 == 1 %}1 photo{% else %}{{ ph.1 | e }} photos{% endif %}</a></li>
+{% for ph in photos.get(yyyy) %}
+<li><div><a href="{{ yyyy | e }}/{{ ph.0.strftime("%m") | e }}/">{{ ph.0.strftime("%B") | e }}</a> <small>{% if ph.1 == 1 %}1 photo{% else %}{{ ph.1 | e }} photos{% endif %}</small></div></li>
 {% endfor %}
 </ul>
 
+</div>
+{% endfor %}
 </div>
 
 {% endblock %}

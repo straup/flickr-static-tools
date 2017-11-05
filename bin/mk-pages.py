@@ -6,6 +6,7 @@ import sys
 import json
 import math
 import shutil
+import datetime
 
 import jinja2
 
@@ -16,7 +17,7 @@ if __name__ == "__main__":
 
     #
 
-    loader = jinja2.FileSystemLoader('./templates')
+    loader = jinja2.FileSystemLoader('../templates')
     escape = jinja2.select_autoescape(['html', 'xml'])
 
     env = jinja2.Environment(
@@ -75,6 +76,7 @@ if __name__ == "__main__":
     pat = re.compile(r'.*(_i\.json)$')
 
     by_date = {}
+    by_dow = {}
 
     for (root, dirs, files) in os.walk(source):
 
@@ -101,9 +103,10 @@ if __name__ == "__main__":
             taken = taken.split(" ")
 
             ymd = taken[0]
-            ymd = ymd.split("-")
 
-            body = photo_template.render(info=info, next=next, prev=prev, yyyy=ymd[0], mm=ymd[1], dd=ymd[2])
+            dt = datetime.datetime.strptime(ymd, '%Y-%m-%d')
+
+            body = photo_template.render(info=info, next=next, prev=prev, dt=dt)
 
             html = os.path.join(root, "index.html")
             page = open(html, "w")
@@ -113,14 +116,20 @@ if __name__ == "__main__":
 
             print "wrote %s" % html
 
-            yyyymmdd = "-".join(ymd)
-            yyyymm = "-".join((ymd[0], ymd[1]))
-            yyyy = ymd[0]
+            yyyymmdd = dt.strftime("%Y-%m-%d")
+            yyyymm = dt.strftime("%Y-%m")
+            yyyy = dt.strftime("%Y")
 
             for d in (yyyymmdd, yyyymm, yyyy):
                 ph = by_date.get(d, [])
                 ph.append(info)
                 by_date[d] = ph
+
+            dow = dt.strftime("%A")
+            dow = dow.lower()
+
+            ph = by_dow.get(dow, [])
+            by_dow[dow] = ph
 
     #
 
@@ -202,17 +211,28 @@ if __name__ == "__main__":
 
     # 
 
-    photos = []
+    photos = {}
+    years = []
 
     for d in dates:
+
+        if len(d.split("-")) != 2:
+            continue
 
         ids = by_date[d]
         count = len(ids)
 
-        photos.append((d, count))
+        dt = datetime.datetime.strptime(d, '%Y-%m')
+        m = photos.get(dt.year, [])
+
+        m.append((dt, count))
+        photos[dt.year] = m
+
+    years = photos.keys()
+    years.sort()
 
     index_template = env.get_template('index.html')
-    body = index_template.render(photos=photos)
+    body = index_template.render(years=years, photos=photos)
 
     index_path = os.path.join(source, "index.html")
 

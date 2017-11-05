@@ -1,3 +1,20 @@
+#index-page-photos {
+		   clear:both;
+}
+
+#index-page-photos ul li {
+		   display:inline;
+		   list-style-type: none;
+}
+
+#index-page-photos ul li a {
+
+}
+
+#index-page-photos ul li a small {
+		   display:block !important;
+}
+
 .photo-thumb {
   	min-height: 125px;
   	min-width: 125px;
@@ -46,27 +63,134 @@
 }
 
 #photo-meta-title {
-		  font-size:2em;
-		  max-width:350px;
+		  font-size:1.5em;
+		  margin-bottom:.5em;
 }
 
 #photo-meta-date  {
 		  font-size: small;
 		  font-family: sans-serif;
-		  margin-top:1.5em;
 }
 
-#photo-meta-date ul {
-		 margin:0px;
-		 padding: 0px;
+
+#photo-meta-date a {
+		 text-decoration: none !important;
 }
 
-#photo-meta-date ul li {
-		 display:inline;
-		 list-style-type:none;
+#photos-nav {
+	    clear:both !important;
 }
 
-#photo-meta-date ul li a {
-		 text-decoration: none;
+#photos-nav .pagination {
 }
 
+#photos-nav .pagination li {
+	   display:inline;
+	   list-style-type: none;
+}
+
+/* tiny screens... */
+
+
+@media (min-width: 280px) and (max-width: 768px) {
+
+       body {
+	    margin-top:.5em;
+       }
+
+       #photo-meta-title {
+       			 clear: both;
+			 font-size:1.2em;
+       }
+
+       #photo-nav {
+       		  float: none !important;
+       }
+
+       #photo-page #photo {
+       		   text-align:center;
+       }
+
+       #photo-page {
+	    max-width:265px;
+	    width:265px;
+       }
+
+       #photo img {
+       	      max-width:255px;
+       }
+
+       #photo-meta-date  {
+       	text-align:left;
+       }
+
+       #photo-nav .photo-thumb {
+       		  text-align:left;
+		  margin-top:1em;
+		 }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+       #photo-page {
+	    max-width:305px;
+	    width:305px;
+       }
+
+       #photo img {
+       	      max-width:295px;
+       }
+
+}
+
+@media (min-width: 360px) and (max-width: 768px) {
+
+       #photo-page {
+	    max-width:345px;
+	    width:345px;
+       }
+
+       #photo img {
+       	      max-width:335px;
+       }
+
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+
+       #photo-page {
+	    max-width:385px;
+	    width:385px;
+       }
+
+       #photo img {
+       	      max-width:375px;
+       }
+
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+
+       #photo-page {
+	    max-width:485px;
+	    width:485px;
+       }
+
+       #photo img {
+       	      max-width:475px;
+       }
+
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+
+       #photo-page {
+	    max-width:585px;
+	    width:585px;
+       }
+
+       #photo img {
+       	      max-width:575px;
+       }
+
+}
