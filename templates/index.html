@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}...{% endblock %}
+{% block head %}
+<script type="text/javascript" src="../../../../js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../css/index.css" />
+{% endblock %}
+{% block content %}
+
+<div id="index-page">
+
+<ul>
+{% for ph in photos %}
+<li><strong>{{ ph.0 | e }}</strong> <a href="#">{% if ph.1 == 1 %}1 photo{% else %}{{ ph.1 | e }} photos{% endif %}</a></li>
+{% endfor %}
+</ul>
+
+</div>
+
+{% endblock %}

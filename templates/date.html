@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ date | e }}{% endblock %}
+{% block head %}
+<script type="text/javascript" src="../../../../js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ dots | e }}css/index.css" />
+{% if prev %}
+<link rel="prev" type="text/html" href="page{{ prev | e }}.html" title="{{ date | e }} page {{ prev | e }}"/>
+{% endif %}
+{% if next %}
+<link rel="next" type="text/html" href="page{{ next | e }}.html" title="{{ date | e }} page {{ next | e }}"/>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div id="photos-list">
+{% for info in photos %}
+<div class="photo-thumb">
+
+<a href="{{ info._prefix | e }}/{{ info.photo.id | e }}/index.html"><img src="{{ info._prefix | e }}/{{ info.photo.id | e }}/{{ info.photo.id | e }}_{{ info.photo.secret | e }}_t.jpg" alt="{{ info.photo.title._content | e }}" title="{{ info.photo.title._content | e }}" /></a>
+
+</div>
+{% endfor %}
+</div>
+
+<div id="photos-nav">
+<ul class="pagination">
+<li>{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html">previous</a>{% else %}this is the beginning{% endif %}</li>
+<li>{% if next %}<a id="next-page" href="page{{ next | e }}.html">next</a>{% else %}this is the end{% endif %}</li>
+</ul>
+</div>
+
+{% endblock %}
