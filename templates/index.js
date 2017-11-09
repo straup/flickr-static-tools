@@ -20,4 +20,7 @@ window.addEventListener("load", function load(event){
 				}
 		});
 
+		// please track touch events
+		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
+		
 });
