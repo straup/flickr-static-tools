@@ -28,7 +28,7 @@
 <img src="{{ info.photo.id | e }}_{{ info.photo.secret | e }}_z.jpg" />
 
 <div id="photo-meta-date">
-  <span class="photo-meta-date-day">{{ dt.strftime("%A") | e }}</span> <span class="photo-meta-date-month" data-month="{{ dt.strftime.month | e }}"><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}">{{ dt.strftime("%B") | e }}</a></span> <span class="photo-meta-date-day" data-day="{{ dt.strftime.day | e }}"><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}/{{ dt.strftime("%d") | e }}/">{{ dt.strftime("%d") | e }}</a></span>, <span class="photo-meta-date-year" data-year="{{ dt.strftime.year | e }}" ><a href="../../../../{{ dt.strftime("%Y") | e }}/">{{ dt.strftime("%Y") | e }}</a></span>
+  <span class="photo-meta-date-day">{{ dt.strftime("%A").lower() | e }}</span> <span class="photo-meta-date-month" data-month="{{ dt.strftime.month | e }}"><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}">{{ dt.strftime("%B").lower() | e }}</a></span> <span class="photo-meta-date-day" data-day="{{ dt.strftime.day | e }}"><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}/{{ dt.strftime("%d") | e }}/">{{ dt.strftime("%d") | e }}</a></span>, <span class="photo-meta-date-year" data-year="{{ dt.strftime.year | e }}" ><a href="../../../../{{ dt.strftime("%Y") | e }}/">{{ dt.strftime("%Y") | e }}</a></span>
 
 </div>
 

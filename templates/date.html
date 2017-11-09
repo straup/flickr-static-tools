@@ -33,7 +33,7 @@
 
 <div id="photos-nav">
 {% if prev or next %}
-<span class="photos-nav-previous">{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html" title="go to page {{ prev | e }} or {{ pages | e}}">page {{ prev | e }}</a>{% else %}start where you are{% endif %}</span>
+<span class="photos-nav-previous">{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html" title="go to page {{ prev | e }} or {{ pages | e}}">page {{ prev | e }}</a>{% else %}you are here{% endif %}</span>
 
 <span class="photos-nav-meta">this is page {{ page | e }} of {{ pages | e }}</span>
 

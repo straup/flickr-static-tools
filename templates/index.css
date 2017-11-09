@@ -17,11 +17,16 @@
 
 #photo-navigation {
 		  font-family:sans-serif;
+		  font-size: small;
+		  border-bottom: 1px dotted #ccc;
+		  margin-bottom:1.5em;
 }
 
 #photo-navigation ul {
 		  padding:0px;
-		  maring:0px;
+		  margin:0px;
+		  margin-bottom:.75em;
+		  margin-top:1em;
 }
 
 #photo-navigation ul li {
@@ -201,6 +206,13 @@
        		  text-align:left;
 		  margin-top:1em;
 		 }
+}
+
+@media (min-width: 280px) and (max-width: 500px) {
+
+       #photos-nav {
+       margin:0px !important;
+    }	   
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
