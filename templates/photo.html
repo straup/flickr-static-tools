@@ -14,6 +14,16 @@
 
 <div id="photo-page">
 
+<div id="photo-navigation">
+  <ul>
+  <li><a href="../../../../">everything</a></li>
+  <li><a href="../../../../{{ dt.strftime("%Y") | e }}/">{{ dt.strftime("%Y") | e }}</a></li>
+  <li><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}">{{ dt.strftime("%m") | e }}</a></li>
+  <li><a href="../../../../{{ dt.strftime("%Y") | e }}/{{ dt.strftime("%m") | e }}/{{ dt.strftime("%d") | e }}/">{{ dt.strftime("%d") | e }}</a></li>
+  <li>{{ info.photo.id | e }}</li>
+  </ul>
+</div>
+
 <div id="photo">
 <img src="{{ info.photo.id | e }}_{{ info.photo.secret | e }}_z.jpg" />
 
