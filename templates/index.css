@@ -43,6 +43,11 @@
 
 #photo-navigation ul li:last-child  {
 		  font-weight: 700;
+
+}
+
+#photo-navigation ul li:last-child  a {
+		  color: #000;
 }
 
 #photo-navigation ul li:last-child:after  {

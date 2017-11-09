@@ -165,6 +165,18 @@ if __name__ == "__main__":
 
         dots = "../" * len(d.split("-"))
 
+        nav = []
+        nav_prefix = ""
+
+        for dt in d.split("-"):
+
+            nav.append({
+                    "date": dt,
+                    "prefix": nav_prefix,
+            })
+
+            nav_prefix += "%s/" % dt
+
         dt = d.replace("-", "/")
         dt_root = os.path.join(source, dt)
 
@@ -183,6 +195,7 @@ if __name__ == "__main__":
                 next = page + 1
 
             for ph in photos:
+
                 ph_dates = ph["photo"]["dates"]
                 taken = ph_dates["taken"]
                 taken = taken.split(" ")
@@ -191,7 +204,7 @@ if __name__ == "__main__":
 
                 ph["_prefix"] = dots + ymd
 
-            body = date_template.render(date=d, photos=photos, page=page, pages=len(pages), prev=prev, next=next, dots=dots)
+            body = date_template.render(date=d, nav=nav, photos=photos, page=page, pages=len(pages), prev=prev, next=next, dots=dots)
 
             fname = "page%s.html" % page
 

@@ -16,7 +16,10 @@
 
 <div id="photo-navigation">
   <ul>
-    <li><a href="../../../../">everything</a></li>
+    <li><a href="{{ dots | e }}">everything</a></li>
+    {% for d in nav %}
+    <li><a href="{{ dots | e}}{{ d.prefix | e }}{{ d.date | e }}/">{{ d.date | e }}</a></li>
+    {% endfor %}
   </ul>
 </div>
 
