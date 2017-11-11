@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block title %}{{ date | e }}{% endblock %}
 {% block head %}
-<script type="text/javascript" src="../../../../js/index.js"></script>
+<script type="text/javascript" src="{{ dots | e }}js/index.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ dots | e }}css/index.css" />
 {% if prev %}
-<link rel="prev" type="text/html" href="page{{ prev | e }}.html" title="{{ date | e }} page {{ prev | e }}"/>
+<link id="previous-page" rel="prev" type="text/html" href="page{{ prev | e }}.html" title="{{ date | e }} page {{ prev | e }}"/>
 {% endif %}
 {% if next %}
-<link rel="next" type="text/html" href="page{{ next | e }}.html" title="{{ date | e }} page {{ next | e }}"/>
+<link id="next-page" rel="next" type="text/html" href="page{{ next | e }}.html" title="{{ date | e }} page {{ next | e }}"/>
 {% endif %}
 {% endblock %}
 {% block content %}
@@ -33,11 +33,11 @@
 
 <div id="photos-nav">
 {% if prev or next %}
-<span class="photos-nav-previous">{% if prev %}<a id="previous-page" href="page{{ prev | e }}.html" title="go to page {{ prev | e }} or {{ pages | e}}">page {{ prev | e }}</a>{% else %}you are here{% endif %}</span>
+<span class="photos-nav-previous">{% if prev %}<a href="page{{ prev | e }}.html" title="go to page {{ prev | e }} or {{ pages | e}}">page {{ prev | e }}</a>{% else %}you are here{% endif %}</span>
 
 <span class="photos-nav-meta">this is page {{ page | e }} of {{ pages | e }}</span>
 
-<span class="photos-nav-next">{% if next %}<a id="next-page" href="page{{ next | e }}.html">page {{ next | e }}</a>{% else %}that is all{% endif %}</span>
+<span class="photos-nav-next">{% if next %}<a href="page{{ next | e }}.html">page {{ next | e }}</a>{% else %}that is all{% endif %}</span>
 {% endif %}
 </div>
 
